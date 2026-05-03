@@ -149,14 +149,17 @@ p {
   letter-spacing: 0.1em;
   color: var(--cream);
   transition: color var(--transition);
-}
 .nav__logo-img {
   height: 87px;
   width: auto;
-  transition: opacity 0.3s;
+  transition: filter 0.4s ease, opacity 0.3s;
+  filter: brightness(0) invert(1); /* weiß auf dunklem Hintergrund */
 }
 .nav__logo-img:hover {
   opacity: 0.8;
+}
+.nav.scrolled .nav__logo-img {
+  filter: brightness(0); /* schwarz auf hellem Hintergrund */
 }
 .nav.scrolled .nav__logo { color: var(--noir); }
 .nav__logo-a { color: var(--copper); }
