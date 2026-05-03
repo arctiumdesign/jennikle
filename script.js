@@ -137,3 +137,20 @@ const yearEl = document.querySelector('.footer p');
 if (yearEl) {
   yearEl.textContent = yearEl.textContent.replace('2026', new Date().getFullYear());
 }
+
+/* -- STORY TOGGLE -- */
+const storyToggle = document.getElementById('storyToggle');
+const storyFull   = document.getElementById('storyFull');
+
+if (storyToggle && storyFull) {
+  storyToggle.addEventListener('click', () => {
+    const isOpen = storyFull.classList.toggle('open');
+    storyToggle.classList.toggle('open', isOpen);
+    storyToggle.setAttribute('aria-expanded', isOpen);
+    if (isOpen) {
+      setTimeout(() => {
+        storyFull.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 100);
+    }
+  });
+}
