@@ -154,3 +154,10 @@ if (storyToggle && storyFull) {
     }
   });
 }
+
+/* -- STORY BUTTON: Klick nicht an arbeit-item weitergeben -- */
+document.querySelectorAll('.btn-success').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+  });
+});
