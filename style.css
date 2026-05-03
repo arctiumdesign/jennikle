@@ -432,7 +432,7 @@ p {
 .arbeit-item--wide .arbeit-item__img { aspect-ratio: 16/7; }
 .arbeit-item__img img {
   width: 100%; height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   transition: transform 0.5s ease;
 }
 .arbeit-item:hover .arbeit-item__img img { transform: scale(1.04); }
