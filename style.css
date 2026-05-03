@@ -150,6 +150,14 @@ p {
   color: var(--cream);
   transition: color var(--transition);
 }
+.nav__logo-img {
+  height: 38px;
+  width: auto;
+  transition: opacity 0.3s;
+}
+.nav__logo-img:hover {
+  opacity: 0.8;
+}
 .nav.scrolled .nav__logo { color: var(--noir); }
 .nav__logo-a { color: var(--copper); }
 .nav__logo-sub {
