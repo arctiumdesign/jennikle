@@ -433,7 +433,6 @@ p {
 .arbeit-item__img img {
   width: 100%; height: 100%;
   object-fit: contain;
-  padding: 1.5rem;
   transition: transform 0.5s ease;
 }
 .arbeit-item:hover .arbeit-item__img img { transform: scale(1.04); }
