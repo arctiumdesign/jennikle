@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impressum – Arctium Design</title>
+  <link rel="icon" type="image/png" href="img/favicon.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    .impressum-hero {
+      background: var(--noir);
+      padding: 10rem 0 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .impressum-hero__bg {
+      position: absolute;
+      top: -20%; right: -10%;
+      width: 50vw; height: 80vh;
+      background: radial-gradient(ellipse at 60% 40%, rgba(196,98,45,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .impressum-hero .label { color: var(--copper-light); }
+    .impressum-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.1;
+      margin-bottom: 0;
+    }
+    .impressum-body {
+      background: var(--cream);
+      padding: 5rem 0 7rem;
+    }
+    .impressum-body .container {
+      max-width: 760px;
+    }
+    .impressum-block {
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--cream-warm);
+    }
+    .impressum-block:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+    .impressum-block h2 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      font-family: var(--font-body);
+      color: var(--copper);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .impressum-block p {
+      color: var(--text);
+      line-height: 1.9;
+      margin-bottom: 0.4rem;
+    }
+    .impressum-block a {
+      color: var(--copper);
+      transition: color 0.3s;
+    }
+    .impressum-block a:hover { color: var(--copper-dark); }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 3rem;
+      transition: gap 0.3s;
+    }
+    .back-link:hover { gap: 0.8rem; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav scrolled" id="nav">
+    <a href="index.html" class="nav__logo">
+      <img src="img/logo-h.png" alt="Arctium Design" class="nav__logo-img" />
+    </a>
+    <button class="nav__burger" id="burger" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="index.html#about">Über mich</a></li>
+      <li><a href="index.html#leistungen">Leistungen</a></li>
+      <li><a href="index.html#arbeiten">Arbeiten</a></li>
+      <li><a href="index.html#kontakt" class="nav__cta">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="impressum-hero">
+    <div class="impressum-hero__bg"></div>
+    <div class="container">
+      <span class="label">Rechtliches</span>
+      <h1>Impressum</h1>
+    </div>
+  </div>
+
+  <!-- INHALT -->
+  <div class="impressum-body">
+    <div class="container">
+
+      <a href="index.html" class="back-link">← Zurück zur Startseite</a>
+
+      <div class="impressum-block">
+        <h2>Angaben gemäß § 5 TMG</h2>
+        <p>Jenni Klette</p>
+        <p>Arctium Design</p>
+        <p>[DEINE STRASSE UND HAUSNUMMER]</p>
+        <p>14974 Ludwigsfelde</p>
+      </div>
+
+      <div class="impressum-block">
+        <h2>Kontakt</h2>
+        <p>Telefon: <a href="tel:015206240423">015206240423</a></p>
+        <p>E-Mail: <a href="mailto:klette.j@gmx.de">klette.j@gmx.de</a></p>
+      </div>
+
+      <div class="impressum-block">
+        <h2>Umsatzsteuer</h2>
+        <p>
+          Als Kleinunternehmer im Sinne von § 19 Abs. 1 UStG wird keine Umsatzsteuer berechnet.
+        </p>
+        <!-- Falls du eine USt-ID hast, stattdessen: -->
+        <!-- <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE[DEINE NUMMER]</p> -->
+      </div>
+
+      <div class="impressum-block">
+        <h2>Verantwortlich für den Inhalt</h2>
+        <p>Jenni Klette</p>
+        <p>[DEINE STRASSE UND HAUSNUMMER]</p>
+        <p>14974 Ludwigsfelde</p>
+      </div>
+
+      <div class="impressum-block">
+        <h2>Haftungsausschluss</h2>
+        <p>
+          Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit,
+          Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden.
+          Als Diensteanbieter bin ich gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten
+          nach den allgemeinen Gesetzen verantwortlich.
+        </p>
+      </div>
+
+      <div class="impressum-block">
+        <h2>Urheberrecht</h2>
+        <p>
+          Die durch die Seitenbetreiberin erstellten Inhalte und Werke auf diesen Seiten
+          unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung
+          und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der
+          schriftlichen Zustimmung der jeweiligen Autorin.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="index.html" class="footer__logo">
+        <img src="img/logo-wh-h.png" alt="Arctium Design" class="footer__logo-img" />
+      </a>
+      <p>© 2026 Arctium Design · Jenni Klette · Ludwigsfelde</p>
+      <p class="footer__small">Grafik &amp; Print · Logogestaltung · Druckabwicklung</p>
+    </div>
+  </footer>
+
+  <script>
+    const burger = document.getElementById('burger');
+    const navLinks = document.getElementById('navLinks');
+    if (burger) {
+      burger.addEventListener('click', () => {
+        burger.classList.toggle('open');
+        navLinks.classList.toggle('open');
+      });
+    }
+  </script>
+
+</body>
+</html>
