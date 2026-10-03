@@ -313,6 +313,7 @@ p {
 }
 .hero__headline em {
   font-style: normal;          /* Waverly CF hat keinen Italic-Schnitt */
+   font-weight: bold;
   color: var(--copper-light);
 }
 .hero__sub {
