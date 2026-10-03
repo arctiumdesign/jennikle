@@ -37,6 +37,14 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Waverly CF';
+  src: url('fonts/waverly-cf-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* -- VARIABLES -- */
 :root {
   --copper:      #C4622D;
@@ -50,7 +58,7 @@
   --text-muted:  #7A6455;
   --white:       #FFFFFF;
 
-  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-display: 'Waverly CF', 'Cormorant Garamond', Georgia, serif;
   --font-body:    'Outfit', sans-serif;
 
   --radius:    12px;
