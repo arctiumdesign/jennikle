@@ -6,7 +6,8 @@
   <title>Arctiumdesign – Professionelles Grafikdesign aus Ludwigsfelde</title>
   <link rel="icon" type="image/png" href="img/favicon.png" />
   <script>
-    try { if (sessionStorage.getItem('introSeen') === '1') document.documentElement.classList.add('no-intro'); } catch (e) {}
+    // Intro nur einmal pro Sitzung. Zum Testen: Seite mit ?intro aufrufen (z. B. index.html?intro)
+    try { if (sessionStorage.getItem('introSeen') === '1' && !/[?&]intro\b/.test(location.search)) document.documentElement.classList.add('no-intro'); } catch (e) {}
   </script>
   <link rel="stylesheet" href="https://use.typekit.net/tdy4euw.css">
   <link rel="stylesheet" href="style.css">
