@@ -182,9 +182,10 @@ if (window.lucide) lucide.createIcons();
   if (!intro) return;
 
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const forced = /[?&]intro\b/.test(location.search);   // ?intro erzwingt das Intro (zum Testen)
   let seen = false;
   try { seen = sessionStorage.getItem('introSeen') === '1'; } catch (e) {}
-  if (seen || reduce) { intro.remove(); startReveals(); return; }
+  if ((seen && !forced) || reduce) { intro.remove(); startReveals(); return; }
 
   const root = document.documentElement;
   const field = document.getElementById('introField');
