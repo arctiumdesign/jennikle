@@ -47,7 +47,8 @@
 
 /* -- VARIABLES -- */
 :root {
-  --copper:      #C4622D;
+--font-headline: 'waverly-cf', 'Cormorant Garamond', Georgia, serif;  
+--copper:      #C4622D;
   --copper-dark: #8B3A10;
   --copper-light:#E8916A;
   --noir:        #0E0A07;
@@ -66,6 +67,11 @@
   --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --shadow:      0 20px 60px rgba(14,10,7,0.15);
   --shadow-hover: 0 30px 80px rgba(14,10,7,0.25);
+
+
+h2, h3, .hero__headline {
+  font-family: var(--font-headline);
+}
 }
 
 /* -- RESET -- */
