@@ -312,10 +312,13 @@ p {
   margin-bottom: 2rem;
 }
 .hero__headline em {
-  font-style: normal;          /* Waverly CF hat keinen Italic-Schnitt */
-   font-weight: bold;
+  display: block;              /* nötig, damit margin-top greift */
+  margin-top: 0.15em;          /* Abstand zur ersten Zeile */
+  font-style: normal;
+  font-weight: bold;
   color: var(--copper-light);
 }
+
 .hero__sub {
   font-size: 1rem;
   color: rgba(250,247,242,0.55);
