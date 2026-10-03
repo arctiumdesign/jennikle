@@ -718,6 +718,7 @@ p {
 }
 .story__content h2 {
   margin-bottom: 1.5rem;
+   font-size: 56px;
 }
 .story__content h2 em {
   font-style: normal;          /* Waverly CF hat keinen Italic-Schnitt */
