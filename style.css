@@ -313,7 +313,7 @@ p {
 }
 .hero__headline em {
   display: block;              /* nötig, damit margin-top greift */
-  margin-top: 0.15em;          /* Abstand zur ersten Zeile */
+  margin-top: -1.8rem;         /* Abstand zur ersten Zeile */
   font-style: normal;
   font-weight: bold;
   color: var(--copper-light);
