@@ -1,12 +1,24 @@
 /* ============================================================
    ARCTIUM DESIGN — style.css
    Editorial Luxury · Copper & Noir
+   ============================================================
+
+   SCHRIFTEN
+   - Waverly CF (Light 300 / Bold 700) kommt über Adobe Fonts.
+     Das Kit wird in der index.html im <head> VOR dieser Datei
+     eingebunden:
+       <link rel="stylesheet" href="https://use.typekit.net/DEINE-KIT-ID.css">
+       <link rel="stylesheet" href="style.css">
+   - Cormorant Garamond (lokal) dient nur noch als Fallback.
+   - Outfit (lokal) bleibt die Fließtext-Schrift.
    ============================================================ */
+
 @font-face {
   font-family: 'Outfit';
   src: url('fonts/outfit-300.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -14,6 +26,7 @@
   src: url('fonts/outfit-400.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -21,6 +34,7 @@
   src: url('fonts/outfit-500.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -28,6 +42,7 @@
   src: url('fonts/cormorant-300.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -35,20 +50,12 @@
   src: url('fonts/cormorant-400.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
-}
-
-@font-face {
-  font-family: 'Waverly CF';
-  src: url('fonts/waverly-cf-regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
   font-display: swap;
 }
 
 /* -- VARIABLES -- */
 :root {
---font-headline: 'waverly-cf', 'Cormorant Garamond', Georgia, serif;  
---copper:      #C4622D;
+  --copper:      #C4622D;
   --copper-dark: #8B3A10;
   --copper-light:#E8916A;
   --noir:        #0E0A07;
@@ -59,19 +66,15 @@
   --text-muted:  #7A6455;
   --white:       #FFFFFF;
 
-  --font-display: 'waverly-cf', 'Cormorant Garamond', Georgia, serif;
-  --font-body:    'Outfit', sans-serif;
+  --font-headline: 'waverly-cf', 'Cormorant Garamond', Georgia, serif;
+  --font-display:  var(--font-headline);
+  --font-body:     'Outfit', sans-serif;
 
   --radius:    12px;
   --radius-lg: 24px;
   --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --shadow:      0 20px 60px rgba(14,10,7,0.15);
   --shadow-hover: 0 30px 80px rgba(14,10,7,0.25);
-
-
-h2, h3, .hero__headline {
-  font-family: var(--font-headline);
-}
 }
 
 /* -- RESET -- */
@@ -87,6 +90,11 @@ body {
 img { max-width: 100%; height: auto; display: block; }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
+
+/* -- HEADLINES: Waverly CF -- */
+h1, h2, h3, h4, .hero__headline {
+  font-family: var(--font-headline);
+}
 
 /* -- UTILITY -- */
 .container {
@@ -106,7 +114,7 @@ ul { list-style: none; }
   margin-bottom: 1rem;
 }
 h2 {
-  font-family: var(--font-display);
+  font-family: var(--font-headline);
   font-size: clamp(2.2rem, 5vw, 4rem);
   font-weight: 300;
   line-height: 1.1;
@@ -114,9 +122,9 @@ h2 {
   margin-bottom: 1.5rem;
 }
 h3 {
-  font-family: var(--font-display);
+  font-family: var(--font-headline);
   font-size: 1.5rem;
-  font-weight: 400;
+  font-weight: 300;   /* Waverly hat nur Light (300) und Bold (700) */
   color: var(--noir);
   margin-bottom: 0.6rem;
 }
@@ -124,6 +132,12 @@ p {
   font-size: 1rem;
   color: var(--text-muted);
   line-height: 1.75;
+}
+
+/* -- LUCIDE ICONS -- */
+[data-lucide],
+.lucide {
+  stroke-width: 1.5;
 }
 
 /* -- REVEAL ANIMATIONS -- */
@@ -290,7 +304,7 @@ p {
   margin-bottom: 1.5rem;
 }
 .hero__headline {
-  font-family: var(--font-display);
+  font-family: var(--font-headline);
   font-size: clamp(3.5rem, 10vw, 8rem);
   font-weight: 300;
   line-height: 1.0;
@@ -298,7 +312,7 @@ p {
   margin-bottom: 2rem;
 }
 .hero__headline em {
-  font-style: italic;
+  font-style: normal;          /* Waverly CF hat keinen Italic-Schnitt */
   color: var(--copper-light);
 }
 .hero__sub {
@@ -440,7 +454,10 @@ p {
   color: var(--copper);
   margin-bottom: 1.5rem;
 }
-.leistung-card__icon svg { width: 100%; height: 100%; }
+.leistung-card__icon svg {
+  width: 100%; height: 100%;
+  stroke-width: 1.25;          /* feine Linien passend zu Waverly Light */
+}
 .leistung-card h3 { color: var(--cream); font-size: 1.2rem; margin-bottom: 0.75rem; }
 .leistung-card p  { color: rgba(250,247,242,0.5); font-size: 0.9rem; line-height: 1.7; }
 
@@ -492,9 +509,9 @@ p {
   color: var(--copper);
 }
 .arbeit-item__info h4 {
-  font-family: var(--font-display);
+  font-family: var(--font-headline);
   font-size: 1.1rem;
-  font-weight: 400;
+  font-weight: 300;
   color: var(--noir);
   margin-top: 0.3rem;
 }
@@ -702,7 +719,7 @@ p {
   margin-bottom: 1.5rem;
 }
 .story__content h2 em {
-  font-style: italic;
+  font-style: normal;          /* Waverly CF hat keinen Italic-Schnitt */
   color: var(--copper);
 }
 .story__preview p {
