@@ -40,7 +40,14 @@ const revealObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+let revealsStarted = false;
+function startReveals() {
+  if (revealsStarted) return;
+  revealsStarted = true;
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+}
+// Ohne Intro sofort starten, mit Intro erst beim Klick (siehe INTRO unten)
+if (!document.getElementById('intro')) startReveals();
 
 /* -- LIGHTBOX -- */
 const lightbox    = document.getElementById('lightbox');
@@ -161,3 +168,80 @@ document.querySelectorAll('.btn-success').forEach(btn => {
     e.stopPropagation();
   });
 });
+
+/* -- LUCIDE ICONS -- */
+if (window.lucide) lucide.createIcons();
+
+/* ============================================================
+   INTRO: aufsteigende A's, Klick startet nach oben
+   ============================================================ */
+(function () {
+  const LOGO = 'img/logo-mark.png';   // A-Logo (nur die Form wird genutzt, Farbe = Kupfer). Leer lassen = Buchstabe "A"
+
+  const intro = document.getElementById('intro');
+  if (!intro) return;
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let seen = false;
+  try { seen = sessionStorage.getItem('introSeen') === '1'; } catch (e) {}
+  if (seen || reduce) { intro.remove(); startReveals(); return; }
+
+  const root = document.documentElement;
+  const field = document.getElementById('introField');
+  root.classList.add('intro-lock');
+
+  // A's erzeugen: große sind schneller und deutlicher, kleine langsamer und blasser
+  const N = window.innerWidth < 600 ? 9 : 16;
+  for (let i = 0; i < N; i++) {
+    const depth = Math.random();
+    const size  = 28 + depth * depth * 130;
+    const dur   = 20 - depth * 9;
+    const el = document.createElement('span');
+    el.className = 'intro__a';
+    el.style.setProperty('--l', (((i + Math.random() * 0.8) / N) * 100).toFixed(1) + '%');
+    el.style.setProperty('--s', size.toFixed(0) + 'px');
+    el.style.setProperty('--d', dur.toFixed(1) + 's');
+    el.style.setProperty('--delay', (-Math.random() * dur).toFixed(1) + 's');
+    el.style.setProperty('--o', (0.10 + depth * 0.20).toFixed(2));
+    el.style.setProperty('--dx', ((Math.random() - 0.5) * 80).toFixed(0) + 'px');
+    el.style.setProperty('--r', ((Math.random() - 0.5) * 36).toFixed(0) + 'deg');
+    if (LOGO) {
+      el.classList.add('intro__a--img');
+      el.style.webkitMaskImage = el.style.maskImage = 'url("' + LOGO + '")';
+    } else {
+      el.textContent = 'A';
+    }
+    field.appendChild(el);
+  }
+
+  function finish() {
+    if (intro.classList.contains('is-done')) return;
+    startReveals();
+    intro.classList.add('is-done');
+    root.classList.remove('intro-lock');
+    try { sessionStorage.setItem('introSeen', '1'); } catch (e) {}
+    setTimeout(() => intro.remove(), 800);
+  }
+
+  function launch() {
+    if (intro.classList.contains('is-launch')) return;
+    intro.classList.add('is-launch');
+    startReveals();   // Hero-Texte blenden ein, während der Screen nach oben wegfährt
+    intro.addEventListener('transitionend', e => {
+      if (e.target === intro && e.propertyName === 'transform') finish();
+    });
+    setTimeout(finish, 2200);
+  }
+
+  intro.addEventListener('pointermove', e => {
+    const w = window.innerWidth, h = window.innerHeight;
+    intro.style.setProperty('--x', e.clientX + 'px');
+    intro.style.setProperty('--y', e.clientY + 'px');
+    intro.style.setProperty('--px', ((e.clientX / w - 0.5) * -16) + 'px');
+    intro.style.setProperty('--py', ((e.clientY / h - 0.5) * -10) + 'px');
+    intro.style.setProperty('--fx', ((e.clientX / w - 0.5) * -50) + 'px');
+  });
+
+  intro.addEventListener('click', launch);
+  document.getElementById('introSkip').addEventListener('click', e => { e.stopPropagation(); finish(); });
+})();
