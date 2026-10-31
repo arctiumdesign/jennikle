@@ -145,11 +145,12 @@ if (yearEl) {
   yearEl.textContent = yearEl.textContent.replace('2026', new Date().getFullYear());
 }
 
-/* -- STORY TOGGLE -- */
-const storyToggle = document.getElementById('storyToggle');
-const storyFull   = document.getElementById('storyFull');
+/* -- STORY TOGGLE (für alle Erfolgsgeschichten) -- */
+document.querySelectorAll('.story__content').forEach(story => {
+  const storyToggle = story.querySelector('.story__toggle');
+  const storyFull   = story.querySelector('.story__full');
+  if (!storyToggle || !storyFull) return;
 
-if (storyToggle && storyFull) {
   storyToggle.addEventListener('click', () => {
     const isOpen = storyFull.classList.toggle('open');
     storyToggle.classList.toggle('open', isOpen);
@@ -160,7 +161,7 @@ if (storyToggle && storyFull) {
       }, 100);
     }
   });
-}
+});
 
 /* -- STORY BUTTON: Klick nicht an arbeit-item weitergeben -- */
 document.querySelectorAll('.btn-success').forEach(btn => {
