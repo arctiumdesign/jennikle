@@ -491,6 +491,8 @@ p {
   box-shadow: var(--shadow-hover);
 }
 .arbeit-item--wide { grid-column: span 2; }
+.arbeit-item--full { grid-column: 1 / -1; }   /* volle Breite, damit keine Lücke im Raster bleibt */
+.story__full a { color: var(--copper); text-decoration: underline; }
 .arbeit-item__img {
   aspect-ratio: 4/3;
   overflow: hidden;
@@ -745,7 +747,7 @@ p {
   margin-top: 0;
 }
 .story__full.open {
-  max-height: 800px;
+  max-height: 1600px;
   opacity: 1;
   margin-top: 1.5rem;
 }
